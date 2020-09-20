@@ -10,8 +10,8 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import router from "./router";
 
 const lolo =new VueSocketio({
-  connection: SocketIO("http://localhost:3000/"),
-  //connection: SocketIO("https://c951dca1d3db.ngrok.io"),
+  //connection: SocketIO("http://localhost:3000/"),
+  connection: SocketIO("https://server-dixit.herokuapp.com/"),
   vuex: {
       store,
       actionPrefix: "SOCKET_"
