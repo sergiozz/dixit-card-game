@@ -7,7 +7,7 @@
   <template v-if="$store.state.seeOthersCards"> 
     <card v-for="(carta, index) in $store.state.votacion" :key="index" :data-image="carta.carta" :data-ganador="carta.islacuentacuentos">
       <h1 slot="header">{{carta.votos}}</h1>
-      <p v-if="!$store.state.yavoto" slot="content" style="withd">
+      <p v-if="!$store.state.yavoto && $store.state.cartaMandadaTuya != carta.carta" slot="content" style="withd">
         <b-toast :id="'btn_'+carta.carta" variant="danger" auto-hide-delay="1000" no-close-button solid static>
           <b-button variant="danger" @click="seleccion(index, carta.carta)">Confirmamo esta!</b-button>
         </b-toast>
@@ -18,12 +18,12 @@
 
   <template v-else> 
     <card v-for="(carta, index) in Jactivo.hand" :key="index" :data-image="carta" :data-ganador="false">
-      <h1 slot="header"></h1>
+      <h1 slot="header"></h1> 
       <p v-if="!$store.state.yaseleciono" slot="content" style="withd">
         <b-toast :id="'btn'+carta" variant="danger" auto-hide-delay="1000" no-close-button solid static>
           <b-button variant="danger" @click="seleccion(index, carta)">Confirmamo esta!</b-button>
         </b-toast>
-        <b-button @click="$bvToast.show('btn'+carta)" pill variant="outline-success">Seleccionar este flash</b-button>
+        <b-button @click="$bvToast.show('btn'+carta)" pill variant="outline-success">Seleccionar esta cosa</b-button>
       </p>
     </card>
   </template>
@@ -66,6 +66,7 @@ export default {
         votos:"",
         islacuentacuentos: false
       }
+      this.$store.state.cartaMandadaTuya = carta_;
 
       switch (this.$store.state.step) {
         case "arrancamo":
@@ -86,6 +87,7 @@ export default {
         case "votacion":
           this.$store.state.yavoto= true;
           this.$socket.emit("votacion", seleccion);
+          this.$store.state.cartaMandadaTuya = 0;
           break;  
         default:
           break;

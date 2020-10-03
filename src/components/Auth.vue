@@ -36,11 +36,12 @@
             <b-card-text class="serif">
             <u>El cuentacuentos:</u>  <br>
             Uno de los jugadores hace de cuentacuentos en cada uno de los turnos. Observa sus
-            6 cartas de la mano y, de una de ellas, debe construir una frase y decirla por videollamada. Es recomendable fumarse un porrito en este juego.<br><br>
+            6 cartas de la mano y, de una de ellas, debe construir una frase y decirla por videollamada, o en voz alta si se encuentran todos presentes.
+            Si el juego acaba de comenzar, el primero que seleccione una carta se trasformará en el cuentacuentos inicial y luego irán rotando entre los demás jugadores. 
+            Esta primer acción podría presentar errores en el juego, es recomendable que antes de seleccionar la carta, éste se pronuncie ante el resto para advertir que él será el 1° cuentacuentos. <br><br>
             <u>Seleccionar una carta para el cuentacuentos:</u>  <br>
             El resto de jugadores seleccionará de entre sus cartas la que mejor se adapte a la
-            frase construida por el cuentacuentos. Entonces, cada jugador le da la carta elegida
-            al cuentacuentos sin que los demás jugadores puedan verla.<br><br>
+            frase construida por el cuentacuentos. Entonces, cada jugador elige una de sus cartas, nadie mas podrá verla hasta que sea la fase de votación.<br><br>
             <u>Encontrar la carta del cuentacuentos : el voto</u>  <br>
             El objetivo de los jugadores es adivinar cuál de las cartas es la que el cuentacuentos
             usó para construir su frase. Si la frase del cuentacuentos describe la carta de forma demasiado precisa, todos los
@@ -60,7 +61,7 @@
             - Cuando sólo un jugador adivina la carta del cuentacuentos, los dos ganan
             4 puntos en lugar de 3.</font><br><br>
             <u>Final del turno y juego:</u>  <br>
-            Cada jugador roba cartas hasta tener 6 en su mano. Ahora el cuentacuentos será otro
+            Cada jugador obtiene nuevas cartas hasta tener 6 en su mano. Ahora el cuentacuentos será otro
             jugador y se repite para completar la ronda de jugadores.<br>
             El juego termina cuando se roba la última carta. El jugador que más lejos haya llegado
             en la escala de puntuación es el ganador.
@@ -113,6 +114,7 @@ export default {
       this.$store.state.yaseleciono= false
       this.$store.state.yavoto= false
       this.$store.state.seeOthersCards = false
+      this.$store.state.cartaMandadaTuya = 0
 
       this.$store.state.nrojugadores = this.nrojugadores
       this.$store.state.nrocartas = this.nrocartas 

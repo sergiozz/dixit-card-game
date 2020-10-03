@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export let store = new Vuex.Store({
   state: {
     nroSala: 0,
+    cartaMandadaTuya:0,
 
     jugadorActivo:"**",    
     seeOthersCards:false,
